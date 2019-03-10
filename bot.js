@@ -1523,4 +1523,27 @@ client.on('message', message => {
       message.channel.send(`**Status You ${argresult} **`)
 }
 });
+var prefix = "%";
+client.on("message", async message => {
+    if(message.content.startsWith(prefix + "help")) {
+        let help = new Discord.RichEmbed()
+            .setColor("RANDOM")
+            .setThumbnail(message.author.avatarURL)
+            .setDescription(`**__برودكاست بوت | Version 1.1__ 
+
+            برودكاست عادي : ${prefix}bc
+            دعوة البوت لسيرفرك : ${prefix}invite
+            دعوة البوت لسيرفرك : ${prefix}invite
+            معلومات عن السيرفر : ${prefix}server
+            برودكاست للأونلاين فقط : ${prefix}bco
+            يعرض لك عدد المتبندين من سيرفرك : 
+            معلومات عن السيرفر : ${prefix}server
+            برودكاست للأونلاين فقط : ${prefix}bco
+            يعرض لك عدد المتبندين من سيرفرك : ${prefix}banned
+            رابط سيرفر الدعم الفني : https://discord.gg/YEXcDXt 
+            **`);
+            message.channel.sendEmbed(help); // رابط السيرفر يعود الى سيرفر CODES .
+    }
+});
+
 client.login(process.env.BOT_TOKEN);
