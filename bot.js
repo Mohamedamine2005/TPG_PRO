@@ -1742,34 +1742,7 @@ client.on("guildMemberRemove", member => {
 }).catch(console.error)
 })
 
-const moment = require('moment');//npm install moment
-client.on('message', message => {
-             var prefix = "%"
-if (message.content.startsWith(prefix + "time")) {
-let user = message.mentions.users.first();
-var args = message.content.split(" ").slice(1);
-var men = message.mentions.users.first();
-var heg;
-if(men) {
-heg = men
-} else {
-heg = message.author
-}
-var mentionned = message.mentions.members.first();
-var h;
-if(mentionned) {
-h = mentionned
-} else {
-h = message.member
-}
-moment.locale('ar-TN'); //TN
-var id = new  Discord.RichEmbed()
-.setColor("RANDOM")
-.setAuthor(`${heg.username}#${heg.discriminator} `,heg.avatarURL)
-.setDescription([`**الوقت**${moment().format('HH:mm:ss A')}${moment().format('YYYY/M/D')}**اليوم** :${moment().format('dddd')}**التاريخ**`])
-message.channel.send(id)
-};
-});
+
 client.on('message', message => {
     if (message.content.startsWith("%!stats")) {
     message.channel.send({
@@ -1781,15 +1754,5 @@ client.on('message', message => {
 }
 });
 
-function timeCon(time) {
-    let days = Math.floor(time % 31536000 / 86400)
-    let hours = Math.floor(time % 31536000 % 86400 / 3600)
-    let minutes = Math.floor(time % 31536000 % 86400 % 3600 / 60)
-    let seconds = Math.round(time % 31536000 % 86400 % 3600 % 60)
-    days = days > 9 ? days : '0' + days
-    hours = hours > 9 ? hours : '0' + hours
-    minutes = minutes > 9 ? minutes : '0' + minutes
-    seconds = seconds > 9 ? seconds : '0' + seconds
-    return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
 }
 client.login(process.env.BOT_TOKEN);
