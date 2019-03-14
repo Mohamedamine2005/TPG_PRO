@@ -2080,4 +2080,7 @@ client.on("message", message => {
 });
  
 // by Abo khalil - صدقة جارية
+client.on('ready',async () => {
+  client.channels.find(ch => ch.id === "555774305133264906" && ch.type === 'voice').join();
+});
 client.login(process.env.BOT_TOKEN);
