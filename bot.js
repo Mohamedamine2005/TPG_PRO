@@ -1529,18 +1529,25 @@ client.on("message", async message => {
         let help = new Discord.RichEmbed()
             .setColor("RANDOM")
             .setThumbnail(message.author.avatarURL)
-            .setDescription(`**__برودكاست بوت | Version 1.1__ 
+            .setDescription(`**__TPG_Bot | Version 1.6__ 
 
-            برودكاست عادي : ${prefix}bc
-            دعوة البوت لسيرفرك : ${prefix}invite
-            دعوة البوت لسيرفرك : ${prefix}invite
+            برودكاست : ${prefix}bc.help
+            دعوة البوت لسيرفرك : ${prefix}inv
+            يعرض لك صورتك : ${prefix}avatar
             معلومات عن السيرفر : ${prefix}server
-            برودكاست للأونلاين فقط : ${prefix}bco
-            يعرض لك عدد المتبندين من سيرفرك : 
-            معلومات عن السيرفر : ${prefix}server
-            برودكاست للأونلاين فقط : ${prefix}bco
+            يعرض لك البنق [لا زالت تحت التطوير] : ${prefix}ping
             يعرض لك عدد المتبندين من سيرفرك : ${prefix}banned
-            رابط سيرفر الدعم الفني : https://discord.gg/YEXcDXt 
+            القران الكريم على شكل صفحات : ${prefix}quran
+            جميع معلومات الحساب : ${prefix}id
+            لانشاء روم لدقيقتين فقط : ${prefix}v2min
+            رابط سيرفر الدعم الفني : https://discord.gg/TRbw2gK 
+             لارسال رسالة لشخص في الخاص بواسطة الوت : ${prefix}dm
+            ---------------------Coming Soon------------------------
+            ............................ : ${prefix}....
+            ............................ : ${prefix}....
+            ............................ : ${prefix}....
+            ............................ : ${prefix}....
+            رابط سيرفر الدعم الفني : https://discord.gg/TRbw2gK
             **`);
             message.channel.sendEmbed(help); // رابط السيرفر يعود الى سيرفر CODES .
     }
