@@ -1589,7 +1589,7 @@ client.on('message', function(message) {
     if (!message.member.hasPermissions(['ADMINISTRATOR'])){
             let command = message.content.split(" ")[0];
         if(message.content.includes('discord.gg')){
-        message.reply (' ')
+        message.reply (' No invite link plz')
            if(!message.channel.guild) return message.reply('** This command only for servers**');
      message.member.addRole(message.guild.roles.find('name', 'Muted'));
     const embed500 = new Discord.RichEmbed()
