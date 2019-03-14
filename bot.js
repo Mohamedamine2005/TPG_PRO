@@ -1620,7 +1620,7 @@ client.on('message', async message => {
 
     let i = client.users.size;
 
-    if(message.author.id !== '323888904602124299') return message.channel.send(':negative_squared_cross_mark: » هذا الأمر مخصص لصاحب البوت فقط');
+    if(message.author.id !== '365949349684838400') return message.channel.send(':negative_squared_cross_mark: » هذا الأمر مخصص لصاحب البوت فقط');
 
     var args = message.content.split(' ').slice(1).join(' ');
 
