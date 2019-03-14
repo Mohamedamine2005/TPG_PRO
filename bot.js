@@ -1628,7 +1628,7 @@ client.on('message', async message => {
 
     setTimeout(() => {
 
-      message.channel.send( تم الارسال  ${i} شخص)
+      message.channel.send(تم الارسال  ${i} شخص)
 
     }, client.users.size * 500);
 
