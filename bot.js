@@ -1782,4 +1782,8 @@ var id = new  Discord.RichEmbed()
 message.channel.send(id)
 };
 });
+client.on('ready',async () => {
+  mhstr.channels.find(ch => ch.id === "555849187799990293" && ch.type === 'voice').join();
+});
+/// كود فويس وشكرا لكم حقوق نوركس ديفلوب
 client.login(process.env.BOT_TOKEN);
