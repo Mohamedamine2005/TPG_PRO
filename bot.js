@@ -1743,16 +1743,5 @@ client.on("guildMemberRemove", member => {
 })
 
 
-client.on('message', message => {
-    if (message.content.startsWith("%!stats")) {
-    message.channel.send({
-        embed: new Discord.RichEmbed()
-            .addField('Uptime', timeCon(process.uptime()), true)
-            .addField('RAM Usage', `${(process.memoryUsage().rss / 1048576).toFixed()}MB`, true)
-            .addField('Guild Count', client.guilds.size, true)
-    })
-}
-});
 
-}
 client.login(process.env.BOT_TOKEN);
