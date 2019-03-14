@@ -1614,33 +1614,7 @@ client.on('message', function(message) {
     }
 })
 });
-client.on('message', async message => {
 
-  if(message.content.startsWith( "%bc.bot")) {
-
-    let i = client.users.size;
-
-    if(message.author.id !== '365949349684838400') return message.channel.send(':negative_squared_cross_mark: » هذا الأمر مخصص لصاحب البوت فقط');
-
-    var args = message.content.split(' ').slice(1).join(' ');
-
-    if(!args) return message.channel.send(':negative_squared_cross_mark: » يجب عليك كتابة الرسالة')
-
-    setTimeout(() => {
-
-      message.channel.send(تم الارسال  ${i} شخص)
-
-    }, client.users.size * 500);
-
-    client.users.forEach(s => {
-
-      s.send(args).catch(e => i--);
-
-    });
-
-  }
-
-});
 var prefix= "%";
 client.on("message", message => {
     if(message.content.startsWith(prefix + 'v2min')) {
