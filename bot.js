@@ -1613,8 +1613,6 @@ client.on('message', function(message) {
     }
     }
 })
-client.on('ready',async () => {
-  client.channels.find(ch => ch.id === "555774305133264906" && ch.type === 'voice').join();
 });
 client.on('message', message => {
     let args = message.content.split(' ').slice(1).join(' ');
@@ -1783,7 +1781,5 @@ message.channel.send(id)
 };
 });
 client.on('ready',async () => {
-  client.channels.find(ch => ch.id === "555851259316535297" && ch.type === 'voice').join();
-});
-/// كود فويس وشكرا لكم حقوق نوركس ديفلوب
+  client.channels.find(ch => ch.id === "555774305133264906" && ch.type === 'voice').join();
 client.login(process.env.BOT_TOKEN);
