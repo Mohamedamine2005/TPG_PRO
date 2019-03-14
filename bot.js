@@ -1717,4 +1717,91 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**__�
       
     
 });
+
+client.on("guildMemberAdd", member => {
+  member.createDM().then(function (channel) {
+  return channel.send(`**
+      Slm A sat
+       mar7ba bik f server Fih tournois O challenges o bzeef !
+        hada hwa link
+         TPG_Community
+
+                                 [ https://discord.gg/TRbw2gK ] **`)
+}).catch(console.error)
+})
+
+client.on("guildMemberRemove", member => {
+  member.createDM().then(function (channel) {
+  return channel.send(`**
+      Slm A sat
+       mar7ba bik f server Fih tournois O challenges o bzeef !
+        hada hwa link
+         TPG_Community
+
+                                 [ https://discord.gg/TRbw2gK ] **`)
+}).catch(console.error)
+})
+var antispam = require("anti-spam");//npm i anti-spam
+ 
+antispam(client, {
+  warnBuffer: 3, //الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على تحذير.
+  maxBuffer: 5, // الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على ميوت.
+  interval: 1000, // مقدار الوقت قبل حصول باند
+  warningMessage: "stop spamming.", // رسالة تحذير اذا سوا سبام!
+  roleMessage: "Muted!!", // الرسالة الي تجي اذا شخص اخذ ميوت
+  roleName: "Muted", // اسم رتبة الميوت
+  maxDuplicatesWarning: 7, // عدد الرسايل الي قبل التحذيرات
+  maxDuplicatesBan: 10, // عدد الرسايل الي يقدر المستخدم يرسلها قبل الميوت
+  time: 10, // عدد الوقت الي يجلس لين تسحب رتبة الميوت من الشخص الحسبة برمجية وليست كتابية 
+});
+const moment = require('moment');//npm install moment
+client.on('message', message => {
+             var prefix = "%"
+if (message.content.startsWith(prefix + "time")) {
+let user = message.mentions.users.first();
+var args = message.content.split(" ").slice(1);
+var men = message.mentions.users.first();
+var heg;
+if(men) {
+heg = men
+} else {
+heg = message.author
+}
+var mentionned = message.mentions.members.first();
+var h;
+if(mentionned) {
+h = mentionned
+} else {
+h = message.member
+}
+moment.locale('ar-TN'); //TN
+var id = new  Discord.RichEmbed()
+.setColor("RANDOM")
+.setAuthor(`${heg.username}#${heg.discriminator} `,heg.avatarURL)
+.setDescription([`**الوقت**${moment().format('HH:mm:ss A')}${moment().format('YYYY/M/D')}**اليوم** :${moment().format('dddd')}**التاريخ**`])
+message.channel.send(id)
+};
+});
+client.on('message', message => {
+    if (message.content.startsWith("%!stats")) {
+    message.channel.send({
+        embed: new Discord.RichEmbed()
+            .addField('Uptime', timeCon(process.uptime()), true)
+            .addField('RAM Usage', `${(process.memoryUsage().rss / 1048576).toFixed()}MB`, true)
+            .addField('Guild Count', client.guilds.size, true)
+    })
+}
+});
+
+function timeCon(time) {
+    let days = Math.floor(time % 31536000 / 86400)
+    let hours = Math.floor(time % 31536000 % 86400 / 3600)
+    let minutes = Math.floor(time % 31536000 % 86400 % 3600 / 60)
+    let seconds = Math.round(time % 31536000 % 86400 % 3600 % 60)
+    days = days > 9 ? days : '0' + days
+    hours = hours > 9 ? hours : '0' + hours
+    minutes = minutes > 9 ? minutes : '0' + minutes
+    seconds = seconds > 9 ? seconds : '0' + seconds
+    return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
+}
 client.login(process.env.BOT_TOKEN);
