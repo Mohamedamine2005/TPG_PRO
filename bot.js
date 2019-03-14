@@ -1633,4 +1633,51 @@ client.on("message", message => {
     });
     
     //كود بسيط روم مؤقت ويمديك تعدل مدته بكل سهولة  وصلوه عدد كبير انزلكم اكواد اكثر
+client.on('message', message => {
+    if (!message.channel.guild) return;
+    if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("***  ليس معك صلاحيات  ***")
+    var prefix = "%";
+       if (message.content ===   prefix + "add role") {
+    message.channel.send("<@" + message.author.id + ">  ***  جاري اعطاء الرتبة للاعضاء كما امرت  *** ")
+    message.guild.members.forEach(m => {
+    m.addRole(message.guild.roles.find('name', 'اسم الرتبة'))
+    })
+    }
+    
+       if (message.content ===   prefix + "remove role") {
+    message.channel.send("<@" + message.author.id + ">  ***  جاري اعطاء الرتبة للاعضاء كما امرت  *** ")
+    message.guild.members.forEach(m => {
+    m.removeRole(message.guild.roles.find('name', 'اسم الرتبة'))
+    })
+    }
+    
+    });
+client.on('guildCreate', guild => {
+    
+
+    var star = new Discord.RichEmbed()
+    .setTitle("DarknessBot")
+    .setColor(000000)
+    .setDescription(`***دخلت عند دلخ***`)                      
+              .setFooter(`TPG_Bot`, 'https://cdn.discordapp.com/attachments/387286451034783744/388013469275914240/thesilent_1x.jpg')
+        guild.owner.send(star)
+  })
+client.on('message', message => {
+    var prefix = "%"
+    if (message.content === prefix + 'create') {
+        if(!message.channel.guild) return message.channel.send('**This Command Only For Servers !**')
+                if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.channel.send(`**${message.author.username} You Dont Have** ``MANAGE_CHANNELS`` **Premission**`);
+         message.guild.createChannel('اسم الروم الكتابي', 'text')
+         message.guild.createChannel('اسم الروم الصوتي', 'voice')
+    
+    message.channel.sendMessage('**Text Channel Was Succsesfluy Created**')
+    }
+    });
+client.on("guildCreate", guild => {
+    client.channels.get("551749509164564481").send(' ***  BOT  ***   **Join To**   ***[ ' + `${guild.name}` + ' ]***   ,   **  Owner  **  ' + ' ***[ ' + '<@' + `${guild.owner.user.id}` + '>' + ' ]***  **|**  ***[ ' + '<' + `${guild.owner.user.username}` + '>' + ' ]***')
+    });
+    
+    client.on("guildDelete", guild => {
+    client.channels.get("551749509164564481").send(' ***  BOT  ***   **Leave From**   ***[ ' + `${guild.name}` + ' ]***   ,   **  Owner  **  ' + ' ***[ ' + '<@' + `${guild.owner.user.id}` + '>' + ' ]***  **|**  ***[ ' + '<' + `${guild.owner.user.username}` + '>' + ' ]***')
+    });
 client.login(process.env.BOT_TOKEN);
