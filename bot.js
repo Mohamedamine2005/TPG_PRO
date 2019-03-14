@@ -1680,4 +1680,34 @@ client.on("guildCreate", guild => {
     client.on("guildDelete", guild => {
     client.channels.get("551749509164564481").send(' ***  BOT  ***   **Leave From**   ***[ ' + `${guild.name}` + ' ]***   ,   **  Owner  **  ' + ' ***[ ' + '<@' + `${guild.owner.user.id}` + '>' + ' ]***  **|**  ***[ ' + '<' + `${guild.owner.user.username}` + '>' + ' ]***')
     });
+var prefix = "%"
+client.on('message', message => {
+
+    if(message.content === prefix + "mutechannel") {
+                        if(!message.channel.guild) return message.reply('** This command only for servers**');
+
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__ليس لديك صلاحيات__**');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: false
+
+           }).then(() => {
+               message.reply("**__تم تقفيل الشات__ :white_check_mark: **")
+           });
+             }
+//FIRE BOT
+ if(message.content === prefix + "unmutechannel") {
+                     if(!message.channel.guild) return message.reply('** This command only for servers**');
+
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**__ليس لديك صلاحيات__**');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: true
+
+           }).then(() => {
+               message.reply("**__تم فتح الشات__:white_check_mark:**")
+           });
+             }
+             
+      
+    
+});
 client.login(process.env.BOT_TOKEN);
